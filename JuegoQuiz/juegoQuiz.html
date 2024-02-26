@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="juegoQuiz.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href=""><img src="/logoScaape Room.png" height="50px" width="50px"></a>
+      <div class="auth-buttons">
+        <!-- Botón de logout -->
+      <button id="logoutButton" style="display:none;">Log Out</button>
+      </div>
+    </nav>
+    <div id="profile-section">
+      <h2>Perfil</h2>
+      <p>Nombre de usuario: <span id="userNameDisplay"></span></p>
+        <button id="editUserButton">Modificar Usuario</button>
+        <button id="deleteUserButton">Eliminar Usuario</button>
+        <button id="showStatsButton">Mostrar Estadísticas</button>
+    </div>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Estadísticas del juego para <span id="modalUserName"></span>:</h2>
+          <p>Puntos: <span id="modalUserScore"></span></p>
+          <p>Tiempo total: <span id="modalTotalTime"></span> segundos</p>
+          <p>Ranking: <span id="modalRanking"></span></p>
+          <div id="modalCategoryStats"></div> 
+      </div>
+    </div>
+  
+  
+    <div class="quiz-app">
+      <div class="quiz-info">
+        <div class="name">
+          Hello: <span id="userName"></span>
+        </div>
+        <div class="category" id="category">Category: <span></span></div>
+        <div class="count">Questions Count: <span></span></div>
+      </div>
+      <div class="quiz-area"></div>
+      <div class="answers-area"></div>
+      <button class="submit-button">Submit Answer</button>
+      <div class="bullets">
+        <div class="spans"></div>
+        <div class="countdown"></div>
+      </div>
+      <div class="results"></div>
+    </div>
+    <script src="juegoQuiz.js"></script>
+    <footer>
+      <div class="foot">
+          <p>Designed By Youssef Malki</p>
+      </div>
+      <script>
+        // Función para cargar los datos del usuario en el formulario de perfil
+        function cargarDatosUsuario() {
+            // Obtener los datos del usuario desde el localStorage
+            let userData = JSON.parse(localStorage.getItem("userData"));
+    
+            // Verificar si hay datos de usuario almacenados
+            if (userData) {
+                // Llenar los campos del formulario con los datos del usuario
+                document.getElementById("nombre").value = userData.nombre;
+                document.getElementById("email").value = userData.email;
+                document.getElementById("password").value = userData.password;
+            }
+        }
+    
+        // Función para guardar los datos del usuario actualizados
+        function guardarPerfil() {
+            // Obtener los valores de los campos del formulario
+            let nombre = document.getElementById("nombre").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+    
+            // Crear un objeto con los datos del usuario
+            let userData = {
+                nombre: nombre,
+                email: email,
+                password: password
+            };
+    
+            // Guardar los datos del usuario en el localStorage
+            localStorage.setItem("userData", JSON.stringify(userData));
+    
+            // Mostrar un mensaje de éxito
+            alert("Perfil actualizado correctamente");
+        }
+    
+        // Función para eliminar el perfil del usuario
+        function eliminarPerfil() {
+            if (confirm("¿Estás seguro de que quieres eliminar tu perfil?")) {
+                // Eliminar los datos del usuario del localStorage
+                localStorage.removeItem("userData");
+    
+                // Limpiar los campos del formulario
+                document.getElementById("nombre").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("password").value = "";
+    
+                // Mostrar un mensaje de éxito
+                alert("Perfil eliminado correctamente");
+            }
+        }
+    </script>
+    
+      </footer>
+  </body>
+</html>

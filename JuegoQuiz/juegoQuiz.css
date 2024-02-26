@@ -1,0 +1,283 @@
+* {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: Tahoma, Arial;
+  }
+  .quiz-app {
+    margin: 20px auto;
+    width: 800px;
+    background-color: #f8f8f8;
+    padding: 15px;
+  }
+  .quiz-app .quiz-info {
+    display: flex;
+    background-color: #fff;
+    padding: 20px;
+   
+  }
+  .quiz-app .quiz-info .category {
+    flex: 1;
+    margin-left: 10px;
+   
+  }
+  .quiz-app .quiz-info .count {
+    flex: 1;
+    text-align: right;
+  }
+  .quiz-app .quiz-area {
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 15px;
+  }
+  .quiz-app .quiz-area h2 {
+    margin: 0;
+  }
+  .quiz-app .answers-area {
+    background-color: #fff;
+    padding: 0 20px 20px;
+  }
+  .quiz-app .answers-area .answer {
+    background-color: #f9f9f9;
+    padding: 15px;
+  }
+  .quiz-app .answers-area .answer:not(:last-child) {
+    border-bottom: 1px solid #dfdfdf;
+  }
+  .quiz-app .answers-area .answer input[type="Radio"]:checked + label {
+    color: #0075ff;
+  }
+  .quiz-app .answers-area .answer label {
+    cursor: pointer;
+    font-weight: bold;
+    color: #777;
+    font-size: 14px;
+    margin-left: 5px;
+    position: relative;
+    top: -1px;
+  }
+  .quiz-app .submit-button {
+    background-color: #0075ff;
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 6px;
+    margin: 20px auto;
+  }
+  .quiz-app .submit-button:focus {
+    outline: none;
+  }
+  .quiz-app .bullets {
+    border-top: 1px solid #dfdfdf;
+    background-color: #fff;
+    display: flex;
+    padding: 20px;
+  }
+  .quiz-app .bullets .spans {
+    flex: 1;
+    display: flex;
+  }
+  .quiz-app .bullets .spans span {
+    width: 20px;
+    height: 20px;
+    background-color: #ddd;
+    margin-right: 5px;
+    border-radius: 50%;
+  }
+  .quiz-app .bullets .spans span.on {
+    background-color: #0075ff;
+  }
+  .quiz-app .results span {
+    font-weight: bold;
+  }
+  .quiz-app .results span.bad {
+    color: #dc0a0a;
+  }
+  .quiz-app .results span.good {
+    color: #009688;
+  }
+  .quiz-app .results span.perfect {
+    color: #0075ff;
+  }
+    
+
+/* Estilos específicos del navbar */
+.navbar {
+  background-color: #00adff;
+  color: #fff;
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: flex; /* Hacer la barra de navegación un contenedor flex */
+  justify-content: space-between; /* Alinear los elementos a los extremos */
+  align-items: center; /* Centrar verticalmente los elementos */
+}
+
+.auth-buttons {
+  display: flex; /* Convertir el contenedor de botones en un contenedor flex */
+  justify-content: center; /* Centrar los elementos horizontalmente */
+  align-items: center; /* Centrar los elementos verticalmente */
+}
+
+.auth-buttons a {
+  text-decoration: none;
+  background-color: #240090;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 0 5px; /* Agregar margen entre los botones */
+  color: #fff;
+}
+
+.auth-buttons a:hover {
+  background-color: #f4661b;
+}
+
+/*Botton logout y perfil*/
+
+#logoutButton {
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  border: none;
+  margin: 10px;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 16px;
+  border: 2px solid transparent;
+  transition: 0.3s ease;
+}
+
+#logoutButton:hover {
+  color: #fff;
+  border-color: #fff;
+  background:#ea33ff;
+}
+
+
+
+
+#editUserButton, #deleteUserButton, #showStatsButton {
+  background: #ea33ff;
+  color: #000;
+  font-weight: 600;
+  border: none;
+  margin: 10px;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 16px;
+  border: 2px solid transparent;
+  transition: 0.3s ease;
+  border-radius: 8px;
+}
+
+#editUserButton:hover, #deleteUserButton:hover, #showStatsButton:hover {
+  color: #fff;
+  border-color: #fff;
+  background: #2196f3;
+}
+/* background Modal */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* contenido Modal  */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* cerrar Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Estilos para el formulario de modificación de usuario */
+#editUserForm {
+  margin-top: 20px;
+  height: 400px;
+  width: 550px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+/* Estilos para las etiquetas del formulario */
+label {
+  font-weight: bold;
+}
+
+/* Estilos para los campos de entrada del formulario */
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 500px;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius:10px;
+  box-sizing: border-box;
+}
+
+/* Estilos para el botón de enviar del formulario */
+button[type="submit"] {
+  background-color: #2196f3;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Estilos para el botón de enviar del formulario al pasar el mouse */
+button[type="submit"]:hover {
+  background-color: #ea33ff;
+}
+
+/* Estilos específicos del footer */
+.foot{
+  position: fixed;
+  margin-top: 15px ;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color:#ea33ff;
+ 
+}
+.foot p{
+  color: white;
+  padding: 15px;
+}
+
+
