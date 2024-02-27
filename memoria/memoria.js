@@ -361,6 +361,7 @@ document.getElementById('logoutButton').addEventListener('click', function(event
     // Redireccionar a la página de inicio de sesión
     window.location.href = '../welcome.html';
 });
+
 // Función para modificar usuario, contraseña y correo electrónico
 document.getElementById('editUserButton').addEventListener('click', function() {
   // Obtener el botón "Modificar Usuario"
