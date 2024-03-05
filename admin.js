@@ -10,7 +10,7 @@ document.getElementById('logoutButton').addEventListener('click', function(event
     localStorage.removeItem('rememberedName');
 
     // Redireccionar a la página de inicio de sesión
-    window.location.href = '../welcome.html';
+    window.location.href = '../index.html';
 });
 
 // Función para modificar usuario, contraseña y correo electrónico
@@ -92,6 +92,6 @@ document.getElementById('deleteUserButton').addEventListener('click', function()
         document.getElementById('userName').innerText = "";
         alert("¡Usuario eliminado con éxito!");
         // Redireccionar a la página de bienvenida
-        window.location.href = '/welcome.html';
+        window.location.href = '/index.html';
     }
 });

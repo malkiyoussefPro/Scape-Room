@@ -7,7 +7,7 @@ window.addEventListener('load', function () {
 
     // Si no hay un nombre de usuario guardado, redirigir a la página de bienvenida
     if (!savedName) {
-        window.location.href = '../welcome.html';
+        window.location.href = '../index.html';
     } else {
         // Si hay un nombre guardado, establecerlo en la interfaz de usuario
         document.getElementById('userName').innerText = savedName;
@@ -322,7 +322,7 @@ document.getElementById('logoutButton').addEventListener('click', function (even
   localStorage.removeItem('rememberedName');
 
   // Redireccionar a la página de inicio de sesión
-  window.location.href = '../welcome.html';
+  window.location.href = '../index.html';
 });
 
 // Mostrar el ranking al cargar la página
@@ -415,7 +415,7 @@ document.getElementById('deleteUserButton').addEventListener('click', function()
         document.getElementById('userName').innerText = "";
         alert("¡Usuario eliminado con éxito!");
         // Redireccionar a la página de bienvenida
-        window.location.href = '/welcome.html';
+        window.location.href = '/index.html';
     }
 });
 

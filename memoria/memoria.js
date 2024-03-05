@@ -36,7 +36,7 @@ function verificarInicioSesion() {
 
     if (!savedName || savedName.trim() === "") {
         // Si el usuario no está logueado, redirigirlo a la página de inicio de sesión
-        window.location.href = '/welcome.html';
+        window.location.href = '/index.html';
     } else {
         // Si el usuario está logueado, iniciar el juego
         startGame();
@@ -325,7 +325,7 @@ function verificarPuntos(puntos) {
             window.location.reload();
         } else {
             // Si el usuario no quiere jugar de nuevo, redirigirlo a la página de bienvenida
-            window.location.href = '/welcome.html';
+            window.location.href = '/index.html';
         }
     } else {
         // Si el usuario alcanzó los 20 puntos, redirigirlo al otro juego
@@ -359,7 +359,7 @@ document.getElementById('logoutButton').addEventListener('click', function(event
     localStorage.removeItem('rememberedName');
 
     // Redireccionar a la página de inicio de sesión
-    window.location.href = '../welcome.html';
+    window.location.href = '../index.html';
 });
 
 // Función para modificar usuario, contraseña y correo electrónico
@@ -441,7 +441,7 @@ document.getElementById('deleteUserButton').addEventListener('click', function()
         document.getElementById('userName').innerText = "";
         alert("¡Usuario eliminado con éxito!");
         // Redireccionar a la página de bienvenida
-        window.location.href = '/welcome.html';
+        window.location.href = '/index.html';
     }
 });
 
