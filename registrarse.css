@@ -109,3 +109,43 @@ button:hover {
   color: white;
   padding: 15px;
 }
+
+
+/* Estilos responsivos */
+
+/* Pantallas de tamaño medio */
+@media only screen and (max-width: 768px) {
+  .form-container {
+      width: 90%; /* Reducir el ancho del formulario */
+  }
+}
+
+/* Pantallas pequeñas */
+@media only screen and (max-width: 480px) {
+  body {
+      padding: 0; /* Eliminar el relleno del cuerpo */
+  }
+
+  .form-container {
+      width: 100%; /* Ajustar el ancho del formulario al 100% */
+      padding: 20px; /* Agregar un poco de relleno al formulario */
+  }
+
+  label {
+      font-size: 14px; /* Reducir el tamaño de la fuente de las etiquetas */
+  }
+
+  input {
+      font-size: 14px; /* Reducir el tamaño de la fuente de los campos de entrada */
+  }
+
+  button {
+      margin-top: 15px; /* Agregar espacio superior al botón */
+  }
+
+  .foot {
+      position: static; /* Cambiar la posición del pie de página a estática para que no se superponga */
+      width: 100%; /* Ajustar el ancho al 100% */
+      text-align: center; /* Centrar el texto del pie de página */
+  }
+}

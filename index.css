@@ -109,3 +109,17 @@ button:hover {
   color: white;
   padding: 15px;
 }
+/* Estilos responsivos */
+
+/* Pantallas pequeñas */
+@media only screen and (max-width: 480px) {
+  .navbar {
+      display: flex;
+      flex-direction: column; /* Cambiamos la dirección de la navegación a columna */
+      align-items: center; /* Centramos los elementos horizontalmente */
+  }
+
+  .navbar a {
+      margin-bottom: 10px; /* Agregamos un poco de espacio entre los botones */
+  }
+}

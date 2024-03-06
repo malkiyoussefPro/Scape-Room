@@ -1,10 +1,93 @@
 ------------------------------------------
+22/01/2024
+    --> Crear pagina html index
+    --> Crear codigo css index
+
+
+------------------------------------------
+23/01/2024
+    --> Crear codigo javaScript index
+
+
+------------------------------------------
+24/01/2024
+    --> Corregir el error para conectarte al pagina index
+
+
+
+
+------------------------------------------
+05/02/2024
+    --> Crear pagina html memoria
+    --> Crear codigo css memoria
+
+
+------------------------------------------
+06/02/2024
+    --> Crear codigo javaScript memoria
+
+
+------------------------------------------
+07/02/2024
+    --> Corregir el error para conectarte al pagina memoria
+
+
+
+------------------------------------------
+12/02/2024
+    --> Crear pagina html juegoQuiz
+    --> Crear codigo css juegoQuiz
+
+
+------------------------------------------
+13/02/2024
+    --> Crear codigo javaScript juegoQuiz
+
+
+------------------------------------------
+14/02/2024
+    --> Corregir el error para conectarte al pagina juegoQuiz
+
+------------------------------------------
+19/02/2024
+    --> Crear pagina html admin
+    --> Crear codigo css admin
+
+
+------------------------------------------
+20/02/2024
+    --> Crear codigo javaScript admin
+
+
+------------------------------------------
+21/02/2024
+    --> Corregir el error para conectarte al pagina admin
+
+
+
+------------------------------------------
+21/02/2024
+    --> Corregir el error para conectarte al pagina admin
+
+
+
+------------------------------------------
 27/02/2024
     --> Crear pagina html admin
     --> Crear codigo css admin
-    --> Crear codigo javaScript admin
 
 
 ------------------------------------------
 28/02/2024
     --> Crear codigo javaScript admin
+
+
+------------------------------------------
+28/02/2024
+    --> Corregir el error para conectarte al pagina admin
+
+
+------------------------------------------
+05/03/2024
+    --> Crear la pagina web del scape room
+    https://scaperoomyoussefmalki.netlify.app/

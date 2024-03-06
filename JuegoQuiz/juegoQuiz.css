@@ -280,4 +280,17 @@ button[type="submit"]:hover {
   padding: 15px;
 }
 
+@media screen and (max-width: 768px) {
+  .quiz-app {
+    width: 90%;
+    margin: 20px auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .quiz-app {
+    width: 100%;
+    margin: 20px auto;
+  }
+}
 

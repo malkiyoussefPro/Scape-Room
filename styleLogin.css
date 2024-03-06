@@ -148,3 +148,18 @@ button:hover {
   color: white;
   padding: 15px;
 }
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body::before {
+    display: none; /* Ocultar fondo en dispositivos pequeños */
+  }
+  .wrapper {
+    width: 100%;
+  }
+}

@@ -408,16 +408,7 @@ document.getElementById('editUserButton').addEventListener('click', function() {
   
   });
 
-// Función para eliminar usuario
-document.getElementById('deleteUserButton').addEventListener('click', function() {
-    if (confirm("¿Estás seguro de que quieres eliminar tu usuario?")) {
-        localStorage.removeItem('savedName');
-        document.getElementById('userName').innerText = "";
-        alert("¡Usuario eliminado con éxito!");
-        // Redireccionar a la página de bienvenida
-        window.location.href = '/index.html';
-    }
-});
+
 
 document.getElementById('mostrarEstadisticasButton').addEventListener('click', function() {
     mostrarEstadisticas();

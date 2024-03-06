@@ -99,3 +99,28 @@ body {
     color: white;
     padding: 15px;
   }
+
+
+  /* Estilos responsivos */
+
+/* Pantallas pequeñas */
+@media only screen and (max-width: 480px) {
+  .navbar {
+      flex-direction: column; /* Cambiamos la dirección de la navegación a columna */
+      align-items: center; /* Centramos los elementos horizontalmente */
+  }
+
+  .auth-buttons {
+      margin-top: 10px; /* Agregamos un poco de espacio arriba de los botones */
+  }
+
+  .profile-container {
+      padding: 20px; /* Ajustamos el relleno del contenedor del perfil */
+  }
+
+  .foot {
+      position: static; /* Cambiamos la posición del pie de página a estática */
+      width: 100%; /* Ajustamos el ancho al 100% */
+      text-align: center; /* Centramos el texto del pie de página */
+  }
+}
