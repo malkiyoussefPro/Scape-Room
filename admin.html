@@ -5,6 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina Admin</title>
     <link rel="stylesheet" href="/memoria/memoria.css">
+    <style>
+        /* Estilos para los botones */
+        #editUserButton, #deleteUserButton, #showStatsButton, #usuariosList, #mostrarUsuarioButton {
+            background: #ea33ff;
+            color: #000;
+            font-weight: 600;
+            border: none;
+            margin: 10px;
+            padding: 12px 20px;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 16px;
+            border: 2px solid transparent;
+            transition: 0.3s ease;
+            border-radius: 8px;
+        }
+        
+        #editUserButton:hover, #deleteUserButton:hover, #showStatsButton:hover, #usuariosList:hover, #mostrarUsuarioButton:hover {
+            color: #fff;
+            border-color: #fff;
+            background: #2196f3;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -13,25 +36,21 @@
             <!-- Botón de logout -->
             <button id="logoutButton" style="display:none;">Log Out</button>
         </div>
-        </nav>
-        <div id="profile-section">
-            <h2>Perfil</h2>
-            <center><h1>Dashboard Scape Room</h1></center>
-          <p>Nombre de usuario: <span id="userNameDisplay"></span></p>
-          <button id="editUserButton">Modificar Usuario</button>
-          <button id="deleteUserButton">Eliminar Usuario</button>
-         
-      </div>
-
-
-
-
+    </nav>
+    <div id="profile-section">
+        <h2>Perfil</h2>
+        <center><h1>Dashboard Scape Room</h1></center>
+        
+        
+        <button id="mostrarUsuarioButton">Mostrar Usuario</button>
+        <div id="usuariosList">Lista de Usuarios</div>
+        
+    </div>
     <footer>
         <div class="foot">
-          <p>Designed By Youssef Malki</p>
+            <p>Designed By Youssef Malki</p>
         </div>
-      </footer>
-      <script src="admin.js"></script>
+    </footer>
+    <script src="admin.js"></script>
 </body>
-
 </html>

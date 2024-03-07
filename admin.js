@@ -12,86 +12,122 @@ document.getElementById('logoutButton').addEventListener('click', function(event
     // Redireccionar a la página de inicio de sesión
     window.location.href = '../index.html';
 });
-
-// Función para modificar usuario, contraseña y correo electrónico
-document.getElementById('editUserButton').addEventListener('click', function() {
-    // Obtener el botón "Modificar Usuario"
-  const editUserButton = document.getElementById('editUserButton');
-  
-  // Función para crear el formulario de modificación de usuario
-  function createEditUserForm() {
-      // Crear el formulario
-      const form = document.createElement('form');
-      form.id = 'editUserForm';
-  
-      // Crear los campos del formulario
-      const newNameLabel = document.createElement('label');
-      newNameLabel.for = 'newName';
-      newNameLabel.textContent = 'Nuevo nombre de usuario:';
-      const newNameInput = document.createElement('input');
-      newNameInput.type = 'text';
-      newNameInput.id = 'newName';
-      newNameInput.name = 'newName';
-  
-      const newPasswordLabel = document.createElement('label');
-      newPasswordLabel.for = 'newPassword';
-      newPasswordLabel.textContent = 'Nueva contraseña:';
-      const newPasswordInput = document.createElement('input');
-      newPasswordInput.type = 'password';
-      newPasswordInput.id = 'newPassword';
-      newPasswordInput.name = 'newPassword';
-  
-      const newEmailLabel = document.createElement('label');
-      newEmailLabel.for = 'newEmail';
-      newEmailLabel.textContent = 'Nuevo correo electrónico:';
-      const newEmailInput = document.createElement('input');
-      newEmailInput.type = 'email';
-      newEmailInput.id = 'newEmail';
-      newEmailInput.name = 'newEmail';
-  
-      // Crear el botón de enviar
-      const submitButton = document.createElement('button');
-      submitButton.type = 'submit';
-      submitButton.textContent = 'Guardar cambios';
-  
-      // Agregar los campos al formulario
-      form.appendChild(newNameLabel);
-      form.appendChild(newNameInput);
-      form.appendChild(document.createElement('br'));
-      form.appendChild(document.createElement('br'));
-  
-      form.appendChild(newPasswordLabel);
-      form.appendChild(newPasswordInput);
-      form.appendChild(document.createElement('br'));
-      form.appendChild(document.createElement('br'));
-  
-      form.appendChild(newEmailLabel);
-      form.appendChild(newEmailInput);
-      form.appendChild(document.createElement('br'));
-      form.appendChild(document.createElement('br'));
-  
-      form.appendChild(submitButton);
-  
-      // Agregar el formulario al DOM
-      document.getElementById('profile-section').appendChild(form);
-  }
-  
-  // Escuchar el evento de clic en el botón "Modificar Usuario"
-  editUserButton.addEventListener('click', function() {
-      // Crear el formulario de modificación de usuario
-      createEditUserForm();
-  });
-  
-  });
-  
-
-// Función para eliminar usuario
-document.getElementById('deleteUserButton').addEventListener('click', function() {
-    if (confirm("¿Estás seguro de que quieres eliminar tu usuario?")) {
-        localStorage.removeItem('savedName');
-        document.getElementById('userName').innerText = "";
-        alert("¡Usuario eliminado con éxito!");
-        // Redireccionar a la página de bienvenida
-        window.location.href = '/index.html';
-    }
+document.getElementById('mostrarUsuarioButton').addEventListener('click', function() {
+    mostrarUsuario();
 });
+
+function mostrarUsuario() {
+    let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+    // Limpiar el contenido de la lista de usuarios
+    document.getElementById('usuariosList').innerHTML = '';
+
+    if (usuarios.length > 0) {
+        usuarios.forEach(function(usuario, index) {
+            let usuarioItem = document.createElement('div');
+            usuarioItem.innerHTML = `
+                <p>Usuario ${index + 1}</p>
+                <p>Nombre: ${usuario.nombre}</p>
+                <p>Apellido: ${usuario.lastName}</p>
+                <p>Email: ${usuario.email}</p>
+                <button class="eliminarUsuarioButton" data-index="${index}">Eliminar</button>
+            `;
+            document.getElementById('usuariosList').appendChild(usuarioItem);
+        });
+    } else {
+        document.getElementById('usuariosList').textContent = 'No hay usuarios registrados.';
+    }
+
+    // Agregar event listener a cada botón de eliminación
+    let eliminarUsuarioButtons = document.querySelectorAll('#eliminarUsuarioButton');
+    eliminarUsuarioButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            let index = this.getAttribute('data-index');
+            eliminarUsuario(index);
+        });
+    });
+}
+
+function eliminarUsuario(index) {
+    let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+    if (confirm("¿Estás seguro de que quieres eliminar este usuario?")) {
+        usuarios.splice(index, 1);
+        localStorage.setItem("usuarios", JSON.stringify(usuarios));
+        mostrarUsuario();
+    }
+}
+
+
+function mostrarUsuario() {
+    let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+    // Limpiar el contenido de la lista de usuarios
+    document.getElementById('usuariosList').innerHTML = '';
+
+    if (usuarios.length > 0) {
+        usuarios.forEach(function(usuario, index) {
+            let usuarioItem = document.createElement('div');
+            usuarioItem.innerHTML = `
+                <p>Usuario ${index + 1}</p>
+                <p>Nombre: ${usuario.nombre}</p>
+                <p>Apellido: ${usuario.lastName}</p>
+                <p>Email: ${usuario.email}</p>
+                <button class="eliminarUsuarioButton" data-index="${index}">Eliminar</button>
+                <button class="editarUsuarioButton" data-index="${index}">Editar</button>
+            `;
+            document.getElementById('usuariosList').appendChild(usuarioItem);
+        });
+    } else {
+        document.getElementById('usuariosList').textContent = 'No hay usuarios registrados.';
+    }
+
+    // Agregar event listener a cada botón de eliminación
+    let eliminarUsuarioButtons = document.querySelectorAll('.eliminarUsuarioButton');
+    eliminarUsuarioButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            let index = this.getAttribute('data-index');
+            eliminarUsuario(index);
+        });
+    });
+
+    // Agregar event listener a cada botón de edición
+    let editarUsuarioButtons = document.querySelectorAll('.editarUsuarioButton');
+    editarUsuarioButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            let index = this.getAttribute('data-index');
+            editarUsuario(index);
+        });
+    });
+}
+
+function eliminarUsuario(index) {
+    let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+    if (confirm("¿Estás seguro de que quieres eliminar este usuario?")) {
+        usuarios.splice(index, 1);
+        localStorage.setItem("usuarios", JSON.stringify(usuarios));
+        mostrarUsuario();
+    }
+}
+
+function editarUsuario(index) {
+    let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+    let usuario = usuarios[index];
+    let nuevoNombre = prompt("Introduce el nuevo nombre:", usuario.nombre);
+    let nuevoLastName = prompt("Introduce el nuevo apellido:", usuario.lastName);
+    let nuevoEmail = prompt("Introduce el nuevo email:", usuario.email);
+    let nuevaPassword = prompt("Introduce la nueva contraseña:", usuario.password);
+    
+    // Verificar si se canceló la edición
+    if (nuevoNombre === null || nuevoLastName === null || nuevoEmail === null || nuevaPassword === null) {
+        return;
+    }
+
+    // Actualizar los datos del usuario
+    usuarios[index].nombre = nuevoNombre;
+    usuarios[index].lastName = nuevoLastName;
+    usuarios[index].email = nuevoEmail;
+    usuarios[index].password = nuevaPassword;
+
+    localStorage.setItem("usuarios", JSON.stringify(usuarios));
+    mostrarUsuario();
+}

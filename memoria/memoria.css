@@ -1,115 +1,118 @@
 * {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, Tahoma, sans-serif;
-}
-
-.control-buttons {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  background-color: #5200ff;
-}
-
-.control-buttons span {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #ea33ff;
-  color: #FFF;
-  padding: 15px 25px;
-  font-size: 30px;
-  text-align: center;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.info-container {
-  width: 100%;
-  max-width: 1080px;
-  margin: 80px auto 0;
-  background-color: #F6F6F6;
-  padding: 20px;
-  font-size: 24px;
-  overflow: hidden;
-}
-
-.memory-game-blocks {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 20px auto;
-}
-
-.memory-game-blocks .game-block {
-  height: 200px;
-  flex: 1 0 calc(25% - 20px);
-  margin: 0 10px 20px;
-}
-
-@media screen and (max-width: 768px) {
-  .memory-game-blocks .game-block {
-    flex: 1 0 calc(33.33% - 20px);
+    box-sizing: border-box;
   }
-}
-
-@media screen and (max-width: 480px) {
-  .memory-game-blocks .game-block {
-    flex: 1 0 calc(50% - 20px);
+  body {
+    font-family: Arial, Tahoma, sans-serif;
   }
-}
-
-.memory-game-blocks .game-block .front {
-  background-color: #240090;
-  line-height: 200px;
-}
-
-.memory-game-blocks .game-block .front:before {
-  content: '!';
-  color: #f4661b;
-  font-size: 140px;
-  font-weight: bold;
-}
-
-.memory-game-blocks .game-block .back {
-  background-color: #607D8B;
-  transform: rotateY(180deg);
-}
-
-.memory-game-blocks .game-block .back img {
-  width: 140px;
-  height: 140px;
-  margin-top: 30px;
-}
-
-.memory-game-blocks .game-block .face {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  backface-visibility: hidden;
-  border: 5px solid #2196F3;
-}
-
-.memory-game-blocks .game-block.is-flipped,
-.memory-game-blocks .game-block.has-match {
-  transform: rotateY(180deg);
-  pointer-events: none;
-}
+  .control-buttons {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: 	#5200ff;
+  }
+  .control-buttons span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color:#ea33ff;
+    color: #FFF;
+    padding: 15px 25px;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .info-container {
+    width: 1080px;
+    
+    background-color: #F6F6F6;
+    padding: 20px;
+    font-size: 24px;
+    overflow: hidden;
+   
+  }
+  .info-container {
+    margin-top: 20px; 
+    margin: 80px auto 0;
+  }
+  
+  .info-container .name {
+    float: left;
+    width: 50%;
+  }
+  .info-container .tries {
+    float: right;
+    width: 50%;
+    text-align: right;
+  }
+  .memory-game-blocks {
+    display: flex;
+    width: 1100px;
+    flex-wrap: wrap;
+    margin: 20px auto;
+  }
+  .memory-game-blocks.no-clicking {
+    pointer-events: none;
+  }
+  .memory-game-blocks .game-block {
+    height: 200px;
+    transition: transform .5s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+    flex: 1 0 200px;
+    margin: 0 10px 20px;
+  }
+  .memory-game-blocks .game-block .front {
+    background-color: #240090;
+    line-height: 200px;
+  }
+  .memory-game-blocks .game-block .front:before {
+    content: '!';
+    color: #f4661b;
+    font-size: 140px;
+    font-weight: bold;
+  }
+  .memory-game-blocks .game-block .back {
+    background-color: #607D8B;
+    transform: rotateY(180deg);
+  }
+  .memory-game-blocks .game-block .back img {
+    width: 140px;
+    height: 140px;
+    margin-top: 30px;
+  }
+  .memory-game-blocks .game-block .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    backface-visibility: hidden;
+    border: 5px solid #2196F3;
+  }
+  .memory-game-blocks .game-block.is-flipped,
+  .memory-game-blocks .game-block.has-match {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    pointer-events: none;
+  }
 
 .rowCronometro {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
+  display: flex; /* Usamos flexbox */
+  justify-content: center; /* Alineamos los elementos horizontalmente en el centro */
+  align-items: center; /* Alineamos los elementos verticalmente en el centro */
+  gap: 10px; /* Espacio entre los elementos */
 }
 
+  
+
+
+/* Estilos específicos del navbar */
 .navbar {
   background-color: #00adff;
   color: #fff;
@@ -119,15 +122,15 @@ body {
   top: 0;
   left: 0;
   z-index: 100;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex; /* Hacer la barra de navegación un contenedor flex */
+  justify-content: space-between; /* Alinear los elementos a los extremos */
+  align-items: center; /* Centrar verticalmente los elementos */
 }
 
 .auth-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: flex; /* Convertir el contenedor de botones en un contenedor flex */
+  justify-content: center; /* Centrar los elementos horizontalmente */
+  align-items: center; /* Centrar los elementos verticalmente */
 }
 
 .auth-buttons a {
@@ -135,7 +138,7 @@ body {
   background-color: #240090;
   border-radius: 5px;
   padding: 5px 10px;
-  margin: 0 5px;
+  margin: 0 5px; /* Agregar margen entre los botones */
   color: #fff;
 }
 
@@ -143,24 +146,24 @@ body {
   background-color: #ea33ff;
 }
 
-.foot {
+/* Estilos específicos del footer */
+.foot{
   position: fixed;
-  margin-top: 15px;
+  margin-top: 15px ;
   bottom: 0;
   width: 100%;
   height: 50px;
-  background-color: #ea33ff;
+  background-color:#ea33ff;
+ 
 }
-
-.foot p {
+.foot p{
   color: white;
   padding: 15px;
 }
-
 .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: flex; /* Convertir el contenedor en un contenedor flex */
+  align-items: center; /* Alinear los elementos verticalmente */
+  justify-content: space-between; /* Distribuir los elementos horizontalmente */
   width: 100%;
   background-color: #f6f6f6;
   padding: 20px;
@@ -175,8 +178,8 @@ body {
 }
 
 .row {
-  display: flex;
-  align-items: center;
+  display: flex; /* Convertir la fila en un contenedor flex */
+  align-items: center; /* Alinear los elementos verticalmente */
 }
 
 .cronometro {
@@ -193,7 +196,9 @@ body {
   color: #666;
 }
 
-#logoutButton {
+/*Botton logout y perfil*/
+
+#logoutButton{
   background: #fff;
   color: #000;
   font-weight: 600;
@@ -210,12 +215,10 @@ body {
 #logoutButton:hover {
   color: #fff;
   border-color: #fff;
-  background: #ea33ff;
+  background:#ea33ff;
 }
 
-#editUserButton,
-#deleteUserButton,
-#showStatsButton {
+#editUserButton, #deleteUserButton, #showStatsButton {
   background: #ea33ff;
   color: #000;
   font-weight: 600;
@@ -230,35 +233,36 @@ body {
   border-radius: 8px;
 }
 
-#editUserButton:hover,
-#deleteUserButton:hover,
-#showStatsButton:hover {
+#editUserButton:hover, #deleteUserButton:hover, #showStatsButton:hover {
   color: #fff;
   border-color: #fff;
   background: #2196f3;
 }
 
+/* background Modal */
 .modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
   left: 0;
   top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
+/* contenido Modal  */
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto;
+  margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  width: 80%; /* Could be more or less, depending on screen size */
   border-radius: 15px;
 }
 
+/* cerrar Button */
 .close {
   color: #aaa;
   float: right;
@@ -273,6 +277,7 @@ body {
   cursor: pointer;
 }
 
+/* Estilos para el formulario de modificación de usuario */
 #editUserForm {
   margin-top: 20px;
   height: 400px;
@@ -282,22 +287,25 @@ body {
   border-radius: 5px;
 }
 
+/* Estilos para las etiquetas del formulario */
 label {
   font-weight: bold;
 }
 
+/* Estilos para los campos de entrada del formulario */
 input[type="text"],
 input[type="password"],
 input[type="email"] {
-  width: 100%;
+  width: 500px;
   padding: 10px;
   margin-top: 5px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
-  border-radius: 10px;
+  border-radius:10px;
   box-sizing: border-box;
 }
 
+/* Estilos para el botón de enviar del formulario */
 button[type="submit"] {
   background-color: #2196f3;
   color: white;
@@ -307,6 +315,20 @@ button[type="submit"] {
   cursor: pointer;
 }
 
+/* Estilos para el botón de enviar del formulario al pasar el mouse */
 button[type="submit"]:hover {
   background-color: #ea33ff;
+}
+
+
+@media screen and (max-width: 768px) {
+  .memory-game-blocks .game-block {
+    flex: 1 0 calc(33.33% - 20px);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .memory-game-blocks .game-block {
+    flex: 1 0 calc(50% - 20px);
+  }
 }

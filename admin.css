@@ -63,27 +63,27 @@ body {
     background:#ea33ff;
   }
   
-  #editUserButton, #deleteUserButton, #showStatsButton {
-    background: #ea33ff;
-    color: #000;
-    font-weight: 600;
-    border: none;
-    margin: 10px;
-    padding: 12px 20px;
-    cursor: pointer;
-    border-radius: 3px;
-    font-size: 16px;
-    border: 2px solid transparent;
-    transition: 0.3s ease;
-    border-radius: 8px;
+    /* Estilos para los botones */
+    #editUserButton, #deleteUserButton, #showStatsButton, #usuariosList, #mostrarUsuarioButton {
+      background: #ea33ff;
+      color: #000;
+      font-weight: 600;
+      border: none;
+      margin: 10px;
+      padding: 12px 20px;
+      cursor: pointer;
+      border-radius: 3px;
+      font-size: 16px;
+      border: 2px solid transparent;
+      transition: 0.3s ease;
+      border-radius: 8px;
   }
   
-  #editUserButton:hover, #deleteUserButton:hover, #showStatsButton:hover {
-    color: #fff;
-    border-color: #fff;
-    background: #2196f3;
+  #editUserButton:hover, #deleteUserButton:hover, #showStatsButton:hover, #usuariosList:hover, #mostrarUsuarioButton:hover {
+      color: #fff;
+      border-color: #fff;
+      background: #2196f3;
   }
-  
 
 /* Estilos específicos del footer */
 .foot{

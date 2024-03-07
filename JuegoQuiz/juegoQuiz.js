@@ -335,78 +335,106 @@ document.getElementById('showStatsButton').addEventListener('click', function() 
 
 
 
-
-
-// Función para modificar usuario, contraseña y correo electrónico
 document.getElementById('editUserButton').addEventListener('click', function() {
     // Obtener el botón "Modificar Usuario"
-  const editUserButton = document.getElementById('editUserButton');
-  
-  // Función para crear el formulario de modificación de usuario
-  function createEditUserForm() {
-      // Crear el formulario
-      const form = document.createElement('form');
-      form.id = 'editUserForm';
-  
-      // Crear los campos del formulario
-      const newNameLabel = document.createElement('label');
-      newNameLabel.for = 'newName';
-      newNameLabel.textContent = 'Nuevo nombre de usuario:';
-      const newNameInput = document.createElement('input');
-      newNameInput.type = 'text';
-      newNameInput.id = 'newName';
-      newNameInput.name = 'newName';
-  
-      const newPasswordLabel = document.createElement('label');
-      newPasswordLabel.for = 'newPassword';
-      newPasswordLabel.textContent = 'Nueva contraseña:';
-      const newPasswordInput = document.createElement('input');
-      newPasswordInput.type = 'password';
-      newPasswordInput.id = 'newPassword';
-      newPasswordInput.name = 'newPassword';
-  
-      const newEmailLabel = document.createElement('label');
-      newEmailLabel.for = 'newEmail';
-      newEmailLabel.textContent = 'Nuevo correo electrónico:';
-      const newEmailInput = document.createElement('input');
-      newEmailInput.type = 'email';
-      newEmailInput.id = 'newEmail';
-      newEmailInput.name = 'newEmail';
-  
-      // Crear el botón de enviar
-      const submitButton = document.createElement('button');
-      submitButton.type = 'submit';
-      submitButton.textContent = 'Guardar cambios';
-  
-      // Agregar los campos al formulario
-      form.appendChild(newNameLabel);
-      form.appendChild(newNameInput);
-      form.appendChild(document.createElement('br'));
-      form.appendChild(document.createElement('br'));
-  
-      form.appendChild(newPasswordLabel);
-      form.appendChild(newPasswordInput);
-      form.appendChild(document.createElement('br'));
-      form.appendChild(document.createElement('br'));
-  
-      form.appendChild(newEmailLabel);
-      form.appendChild(newEmailInput);
-      form.appendChild(document.createElement('br'));
-      form.appendChild(document.createElement('br'));
-  
-      form.appendChild(submitButton);
-  
-      // Agregar el formulario al DOM
-      document.getElementById('profile-section').appendChild(form);
-  }
-  
-  // Escuchar el evento de clic en el botón "Modificar Usuario"
-  editUserButton.addEventListener('click', function() {
-      // Crear el formulario de modificación de usuario
-      createEditUserForm();
-  });
-  
-  });
+    const editUserButton = document.getElementById('editUserButton');
+    
+    // Función para crear el formulario de modificación de usuario
+    function createEditUserForm() {
+        // Crear el formulario
+        const form = document.createElement('form');
+        form.id = 'editUserForm';
+    
+        // Crear los campos del formulario
+        const newNameLabel = document.createElement('label');
+        newNameLabel.for = 'newName';
+        newNameLabel.textContent = 'Nuevo nombre de usuario:';
+        const newNameInput = document.createElement('input');
+        newNameInput.type = 'text';
+        newNameInput.id = 'newName';
+        newNameInput.name = 'newName';
+    
+        const newPasswordLabel = document.createElement('label');
+        newPasswordLabel.for = 'newPassword';
+        newPasswordLabel.textContent = 'Nueva contraseña:';
+        const newPasswordInput = document.createElement('input');
+        newPasswordInput.type = 'password';
+        newPasswordInput.id = 'newPassword';
+        newPasswordInput.name = 'newPassword';
+    
+        const newEmailLabel = document.createElement('label');
+        newEmailLabel.for = 'newEmail';
+        newEmailLabel.textContent = 'Nuevo correo electrónico:';
+        const newEmailInput = document.createElement('input');
+        newEmailInput.type = 'email';
+        newEmailInput.id = 'newEmail';
+        newEmailInput.name = 'newEmail';
+    
+        // Crear el botón de enviar
+        const submitButton = document.createElement('button');
+        submitButton.type = 'submit';
+        submitButton.textContent = 'Guardar cambios';
+    
+        // Agregar los campos al formulario
+        form.appendChild(newNameLabel);
+        form.appendChild(newNameInput);
+        form.appendChild(document.createElement('br'));
+        form.appendChild(document.createElement('br'));
+    
+        form.appendChild(newPasswordLabel);
+        form.appendChild(newPasswordInput);
+        form.appendChild(document.createElement('br'));
+        form.appendChild(document.createElement('br'));
+    
+        form.appendChild(newEmailLabel);
+        form.appendChild(newEmailInput);
+        form.appendChild(document.createElement('br'));
+        form.appendChild(document.createElement('br'));
+    
+        form.appendChild(submitButton);
+    
+        // Agregar el formulario al DOM
+        document.getElementById('profile-section').appendChild(form);
+    
+        // Escuchar el evento submit del formulario de edición
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar que el formulario se envíe por defecto
+    
+            // Obtener los nuevos valores del formulario
+            let newName = document.getElementById('newName').value;
+            let newPassword = document.getElementById('newPassword').value;
+            let newEmail = document.getElementById('newEmail').value;
+    
+            // Obtener los usuarios del Local Storage
+            let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+    
+            // Buscar el usuario que se va a modificar
+            let usuarioIndex = usuarios.findIndex(usuario => usuario.nombre === newName);
+    
+            if (usuarioIndex !== -1) {
+                // Actualizar los datos del usuario
+                usuarios[usuarioIndex].name = newName;
+                usuarios[usuarioIndex].password = newPassword;
+                usuarios[usuarioIndex].email = newEmail;
+    
+                // Guardar los cambios en el Local Storage
+                localStorage.setItem('usuarios', JSON.stringify(usuarios));
+    
+                // Limpiar el formulario
+                form.reset();
+    
+                // Mostrar mensaje de éxito
+                alert('Usuario modificado exitosamente.');
+            } else {
+                // Mostrar mensaje de error si el usuario no se encuentra
+                alert('Usuario no encontrado.');
+            }
+        });
+    }
+    
+    // Crear el formulario de modificación de usuario
+    createEditUserForm();
+});
 
 
 
